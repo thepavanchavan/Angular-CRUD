@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentDataService } from '../appService/student-data.service';
 
 @Component({
   selector: 'app-student-form',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentFormComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(public service:StudentDataService) { }
+
+  ngOnInit(){
   }
 studentCity = [
   {id:1, value:'Pune'},
@@ -17,4 +19,13 @@ studentCity = [
   {id:3, value:'Mumbai'},
   {id:4, value:'Hydrabad'}
 ];
+
+onClear() {
+  this.service.form.reset();
+  this.service.initializeFormGroup();
+}
+
+onSubmit(data: { name: any; city: any; gender: any; }){
+  this.service.givenStudentData(data.name, data.city, data.gender)
+}
 }

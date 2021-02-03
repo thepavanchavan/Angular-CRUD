@@ -1,33 +1,31 @@
-<form class="form">
+<form [formGroup]="service.form"class="form" #studentData = "ngForm" (ngSubmit) = "onSubmit(studentData.value)">
 <h3>Student Data</h3>
-<mat-form-field appearance="fill">
-<mat-label>Student Name</mat-label>
-<input matInput>
-</mat-form-field>
+<input type="hidden" formControlName="$key">
 <mat-form-field>
-<mat-label>City</mat-label>
-<mat-select>
+    <input matInput formControlName="name" placeholder="Student Name" name="name" ngModel>
+  </mat-form-field>
+<mat-form-field>
+<mat-select formControlName="city" placeholder = "City" name = "city" ngModel>
 <mat-option>None</mat-option>
 <ng-container *ngFor="let city of studentCity">
-<mat-option value="{{city.id}}">{{city.value}}</mat-option>
+<mat-option value="{{city.value}}">{{city.value}}</mat-option>
 </ng-container>
 </mat-select>
 </mat-form-field>
 <mat-label>Choose Subject</mat-label>
-<mat-checkbox>Physics</mat-checkbox>
-<mat-checkbox>Chemistry</mat-checkbox>
-<mat-checkbox>Maths</mat-checkbox>
-<mat-checkbox>Biology</mat-checkbox>
+<mat-checkbox formControlName="isSelected" ngModel>Physics</mat-checkbox>
+<mat-checkbox formControlName="isSelected" ngModel>Chemistry</mat-checkbox>
+<mat-checkbox formControlName="isSelected" ngModel>Maths</mat-checkbox>
+<mat-checkbox formControlName="isSelected" ngModel>Biology</mat-checkbox>
 <br>
 <mat-label>Gender</mat-label>
-<mat-radio-group aria-label="Select an option">
+<mat-radio-group formControlName="gender" aria-label="Select an option" name="gender" ngModel>
 <mat-radio-button value="1">Male</mat-radio-button>
 <mat-radio-button value="2">Female</mat-radio-button>
 </mat-radio-group>
 <br>
 <div class="example-button-row">
-<button mat-stroked-button color="primary">Save</button>
-<button mat-stroked-button color="warn">Cancel</button>
+<button mat-stroked-button color="primary" type="submit">Save</button>
+<button mat-stroked-button color="warn" (click)="onClear()">Clear</button>
 </div>
 </form>
-
