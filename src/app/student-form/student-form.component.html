@@ -2,8 +2,9 @@
 <h3>Student Data</h3>
 <input type="hidden" formControlName="$key">
 <mat-form-field>
-    <input matInput formControlName="name" placeholder="Student Name" name="name" ngModel>
-  </mat-form-field>
+  <input matInput formControlName="name" placeholder="Student Name*" name="name" ngModel>
+  <mat-error>This field is mandatory.</mat-error>
+</mat-form-field>
 <mat-form-field>
 <mat-select formControlName="city" placeholder = "City" name = "city" ngModel>
 <mat-option>None</mat-option>
@@ -13,19 +14,42 @@
 </mat-select>
 </mat-form-field>
 <mat-label>Choose Subject</mat-label>
-<mat-checkbox formControlName="isSelected" ngModel>Physics</mat-checkbox>
-<mat-checkbox formControlName="isSelected" ngModel>Chemistry</mat-checkbox>
-<mat-checkbox formControlName="isSelected" ngModel>Maths</mat-checkbox>
-<mat-checkbox formControlName="isSelected" ngModel>Biology</mat-checkbox>
+<section class="example-section">
+<span class="example-list-section">
+  <mat-checkbox formControlName="isSelected" class="example-margin"
+                [checked]="allComplete"
+                [color]="task.color"
+                [indeterminate]="someComplete()"
+                (change)="setAll($event.checked)">
+    {{task.name}}
+  </mat-checkbox>
+</span>
+<span class="example-list-section">
+  <ul>
+    <li *ngFor="let subtask of task.subtasks">
+      <mat-checkbox formControlName="isSelected" [(ngModel)]="subtask.completed"
+                    [color]="subtask.color"
+                    (ngModelChange)="updateAllComplete()" name = "subject" ngModel>
+        {{subtask.name}}
+      </mat-checkbox>
+    </li>
+  </ul>
+</span>
+</section>
 <br>
 <mat-label>Gender</mat-label>
 <mat-radio-group formControlName="gender" aria-label="Select an option" name="gender" ngModel>
-<mat-radio-button value="1">Male</mat-radio-button>
-<mat-radio-button value="2">Female</mat-radio-button>
+<mat-radio-button value="Male">Male</mat-radio-button>
+<mat-radio-button value="Female">Female</mat-radio-button>
 </mat-radio-group>
 <br>
 <div class="example-button-row">
-<button mat-stroked-button color="primary" type="submit">Save</button>
-<button mat-stroked-button color="warn" (click)="onClear()">Clear</button>
+<button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Save</button>
 </div>
 </form>
+<div>
+  <button class="clearButton" mat-raised-button color="warn" (click)="onClear()">Clear</button>
+</div>
+<div *ngFor = "let inform of studentInfo">
+<app-student-table [info]="inform"></app-student-table>
+</div>

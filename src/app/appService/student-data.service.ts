@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentDataService {
-  constructor() { }
+  
+  information: any = [] //Object
 
+  constructor() { }
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
-    name: new FormControl(''),
+    name: new FormControl('', Validators.required),
     city: new FormControl(0),
-    gender: new FormControl('1'),
+    gender: new FormControl('Male'),
     isSelected: new FormControl(false)
   });
 
@@ -20,11 +22,8 @@ initializeFormGroup() {
     $key: null,
     name: '',
     city: 0,
-    gender: '1',
+    gender: 'Male',
     isSelected: false
   });
-}
-givenStudentData(_givenName: any, _givenCity: any, _givenGender: any){
-  console.log(_givenCity, _givenGender, _givenName);
 }
 }

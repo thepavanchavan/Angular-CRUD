@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { StudentDataService } from './../app/appService/student-data.service';
 import { ReactiveFormsModule } from "@angular/forms";
@@ -14,6 +15,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
+    FormsModule,
   ],
   providers: [StudentDataService],
   bootstrap: [AppComponent]

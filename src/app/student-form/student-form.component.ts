@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentDataService } from '../appService/student-data.service';
+import {ThemePalette} from '@angular/material/core';
+
+export interface Task {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+  subtasks?: Task[];
+}
 
 @Component({
   selector: 'app-student-form',
@@ -8,10 +16,12 @@ import { StudentDataService } from '../appService/student-data.service';
 })
 export class StudentFormComponent implements OnInit {
 
+  studentInfo:any = [];
 
   constructor(public service:StudentDataService) { }
 
   ngOnInit(){
+    this.studentInfo = this.service.information;
   }
 studentCity = [
   {id:1, value:'Pune'},
@@ -25,7 +35,41 @@ onClear() {
   this.service.initializeFormGroup();
 }
 
-onSubmit(data: { name: any; city: any; gender: any; }){
-  this.service.givenStudentData(data.name, data.city, data.gender)
+onSubmit(data: { name: any; city: any; subject:any; gender: any; }){
+  this.studentInfo.push({"name":data.name, "city":data.city,"subject":data.subject, "gender":data.gender});
+  console.log(this.studentInfo);
+}
+
+
+task: Task = {
+  name: 'Select All',
+  completed: false,
+  color: 'primary',
+  subtasks: [
+    {name: 'Physics', completed: false, color: 'primary'},
+    {name: 'Chemistry', completed: false, color: 'accent'},
+    {name: 'Math', completed: false, color: 'warn'}
+  ]
+};
+
+allComplete: boolean = false;
+
+updateAllComplete() {
+  this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+}
+
+someComplete(): boolean {
+  if (this.task.subtasks == null) {
+    return false;
+  }
+  return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
+}
+
+setAll(completed: boolean) {
+  this.allComplete = completed;
+  if (this.task.subtasks == null) {
+    return;
+  }
+  this.task.subtasks.forEach(t => t.completed = completed);
 }
 }

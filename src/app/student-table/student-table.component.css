@@ -1,8 +1,7 @@
-table {
-    width: 50%;
-  }
-  .mat-elevation-z8{
-    width: 50%;
-    margin-left: 40%;
-    margin-top: 20px;
-  }
+.head{
+  background-color: blueviolet;
+}
+.row{
+  margin-left: 30%;
+  padding: 5px;
+}
