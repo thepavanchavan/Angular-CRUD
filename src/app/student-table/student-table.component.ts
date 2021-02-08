@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StudentDataService } from '../appService/student-data.service';
 
 @Component({
@@ -11,13 +11,13 @@ export class StudentTableComponent implements OnInit {
   ngOnInit() {}
   searchText: any;
   @Input() info: any;
+  @Output() deleteInfo = new EventEmitter<any>();
+  @Output() editInfo = new EventEmitter<any>();
 
-  deleteRow(data: any){
-    //for(var i=0;i<this.info.length();i++){
-      //if(this.info[i].id = ){
-        this.info.splice(data.id,1); 
-     // }
-   // }
-           
-}
+   deleteRow(data: any){ 
+        this.deleteInfo.emit(data);       
+ }
+ editRow(data: any){
+   this.editInfo.emit(data);
+ }
 }

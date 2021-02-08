@@ -51,4 +51,4 @@
 <button class="clearButton" mat-raised-button color="warn" (click)="onClear()">Clear</button>
 </div>
 <!-- <div *ngFor = "let inform of studentInfo"> -->
-<app-student-table [info]="studentInfo"></app-student-table>
+<app-student-table [info]="studentInfo" (deleteInfo)="onDelete($event)" (editInfo)="onEdit($event)"></app-student-table>

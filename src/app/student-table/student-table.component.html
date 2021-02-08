@@ -12,6 +12,6 @@
   <div fxFlex="25">{{ data.name | titlecase }}</div>
   <div fxFlex="25">{{ data.city }}</div>
   <div fxFlex="25">{{ data.gender }}</div>
-  <div fxFlex="25"><button mat-button color="primary">Edit</button></div>
-  <div fxFlex="25"><button mat-button color="warn" id="{{ data.id }}" (click) = "deleteRow(this)">Delete</button></div>
+  <div fxFlex="25"><button mat-button color="primary" id="{{ data.id }}" (click) = "editRow(data)" >Edit</button></div>
+  <div fxFlex="25"><button mat-button color="warn" id="{{ data.id }}" (click) = "deleteRow(data)">Delete</button></div>
 </div>
