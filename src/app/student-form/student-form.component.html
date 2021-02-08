@@ -2,8 +2,8 @@
 <h3>Student Data</h3>
 <input type="hidden" formControlName="$key">
 <mat-form-field>
-  <input matInput formControlName="name" placeholder="Student Name*" name="name" ngModel>
-  <mat-error>This field is mandatory.</mat-error>
+<input matInput formControlName="name" placeholder="Student Name*" name="name" ngModel>
+<mat-error>This field is mandatory.</mat-error>
 </mat-form-field>
 <mat-form-field>
 <mat-select formControlName="city" placeholder = "City" name = "city" ngModel>
@@ -16,24 +16,24 @@
 <mat-label>Choose Subject</mat-label>
 <section class="example-section">
 <span class="example-list-section">
-  <mat-checkbox formControlName="isSelected" class="example-margin"
-                [checked]="allComplete"
-                [color]="task.color"
-                [indeterminate]="someComplete()"
-                (change)="setAll($event.checked)">
-    {{task.name}}
-  </mat-checkbox>
+<mat-checkbox formControlName="isSelected" class="example-margin"
+              [checked]="allComplete"
+              [color]="task.color"
+              [indeterminate]="someComplete()"
+              (change)="setAll($event.checked)">
+  {{task.name}}
+</mat-checkbox>
 </span>
 <span class="example-list-section">
-  <ul>
-    <li *ngFor="let subtask of task.subtasks">
-      <mat-checkbox formControlName="isSelected" [(ngModel)]="subtask.completed"
-                    [color]="subtask.color"
-                    (ngModelChange)="updateAllComplete()" name = "subject" ngModel>
-        {{subtask.name}}
-      </mat-checkbox>
-    </li>
-  </ul>
+<ul>
+  <li *ngFor="let subtask of task.subtasks">
+    <mat-checkbox formControlName="isSelected" [(ngModel)]="subtask.completed"
+                  [color]="subtask.color"
+                  (ngModelChange)="updateAllComplete()" name = "subject" value = "{{subtask.name}}" ngModel>
+      {{subtask.name}}
+    </mat-checkbox>
+  </li>
+</ul>
 </span>
 </section>
 <br>
@@ -48,8 +48,7 @@
 </div>
 </form>
 <div>
-  <button class="clearButton" mat-raised-button color="warn" (click)="onClear()">Clear</button>
+<button class="clearButton" mat-raised-button color="warn" (click)="onClear()">Clear</button>
 </div>
-<div *ngFor = "let inform of studentInfo">
-<app-student-table [info]="inform"></app-student-table>
-</div>
+<!-- <div *ngFor = "let inform of studentInfo"> -->
+<app-student-table [info]="studentInfo"></app-student-table>

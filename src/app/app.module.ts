@@ -15,7 +15,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FlexLayoutModule,
     FormsModule,
+    MatTabsModule,
+    Ng2SearchPipeModule
   ],
   providers: [StudentDataService],
   bootstrap: [AppComponent]

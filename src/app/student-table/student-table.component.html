@@ -1,6 +1,17 @@
-<div fxLayout="row" fxLayoutAlign="start center" class="row">
-  <div fxFlex="25">{{info.name}}</div>
-  <div fxFlex="25">{{info.city}}</div>
-  <div fxFlex="25">{{info.gender}}</div>
-  <div fxFlex="25"><button mat-flat-button color="warn">Delete</button></div>
-  </div>
+<div class="search-hero">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching">
+</div>
+<div fxLayout="row" fxLayoutAlign="start center" class="tableHead">
+  <div fxFlex="20">Name</div>
+  <div fxFlex="19">City</div>
+  <div fxFlex="31">Gender</div>
+  <div fxFlex = "10">Actions</div>
+</div>
+
+<div class="row" fxLayout="row" fxLayoutAlign="start center" *ngFor="let data of info | filter:searchText">
+  <div fxFlex="25">{{ data.name | titlecase }}</div>
+  <div fxFlex="25">{{ data.city }}</div>
+  <div fxFlex="25">{{ data.gender }}</div>
+  <div fxFlex="25"><button mat-button color="primary">Edit</button></div>
+  <div fxFlex="25"><button mat-button color="warn" id="{{ data.id }}" (click) = "deleteRow(this)">Delete</button></div>
+</div>
