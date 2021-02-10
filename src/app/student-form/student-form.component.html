@@ -2,11 +2,11 @@
 <h3>Student Data</h3>
 <input type="hidden" formControlName="$key">
 <mat-form-field>
-<input matInput formControlName="name" placeholder="Student Name*" name="name" ngModel>
+<input matInput formControlName="name" placeholder="Student Name*" name="name" [(ngModel)]="studentInfo.name">
 <mat-error>This field is mandatory.</mat-error>
 </mat-form-field>
 <mat-form-field>
-<mat-select formControlName="city" placeholder = "City" name = "city" ngModel>
+<mat-select formControlName="city" placeholder = "City" name = "city" [(ngModel)]="studentInfo.city">
 <mat-option>None</mat-option>
 <ng-container *ngFor="let city of studentCity">
 <mat-option value="{{city.value}}">{{city.value}}</mat-option>
@@ -29,7 +29,7 @@
   <li *ngFor="let subtask of task.subtasks">
     <mat-checkbox formControlName="isSelected" [(ngModel)]="subtask.completed"
                   [color]="subtask.color"
-                  (ngModelChange)="updateAllComplete()" name = "subject" value = "{{subtask.name}}" ngModel>
+                  (ngModelChange)="updateAllComplete()" name = "subject" value = "{{subtask.name}}">
       {{subtask.name}}
     </mat-checkbox>
   </li>
@@ -38,13 +38,14 @@
 </section>
 <br>
 <mat-label>Gender</mat-label>
-<mat-radio-group formControlName="gender" aria-label="Select an option" name="gender" ngModel>
+<mat-radio-group formControlName="gender" aria-label="Select an option" name="gender" [(ngModel)]="studentInfo.gender">
 <mat-radio-button value="Male">Male</mat-radio-button>
 <mat-radio-button value="Female">Female</mat-radio-button>
 </mat-radio-group>
 <br>
 <div class="example-button-row">
-<button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Save</button>
+<button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" *ngIf="!isEdit">Save</button>
+<button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid" *ngIf="isEdit" (click) = "updateStudent(studentData.value)">Update</button>
 </div>
 </form>
 <div>

@@ -9,7 +9,9 @@ import { StudentDataService } from '../appService/student-data.service';
 export class StudentTableComponent implements OnInit {
   constructor(public service: StudentDataService) {}
   ngOnInit() {}
-  searchText: any;
+  searchText1: any;
+  searchText2: any;
+  searchText3: any;
   @Input() info: any;
   @Output() deleteInfo = new EventEmitter<any>();
   @Output() editInfo = new EventEmitter<any>();

@@ -5,6 +5,7 @@ import { StudentDataService } from './../app/appService/student-data.service';
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentTableComponent } from './student-table/student-table.component';
@@ -40,7 +41,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FlexLayoutModule,
     FormsModule,
     MatTabsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule,
   ],
   providers: [StudentDataService],
   bootstrap: [AppComponent]

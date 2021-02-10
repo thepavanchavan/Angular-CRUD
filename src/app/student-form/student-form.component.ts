@@ -15,9 +15,10 @@ export interface Task {
   styleUrls: ['./student-form.component.css'],
 })
 export class StudentFormComponent implements OnInit {
+  isEdit = false;
   studentInfo: any = [
     { id: 1, name: 'John', city: 'Pune', subject: 'Math', gender: 'Male' },
-    { id: 2, name: 'Julie', city: 'Florida', subject: 'Chemistry', gender: 'Female' },
+    { id: 2, name: 'Julie', city: 'Delhi', subject: 'Chemistry', gender: 'Female' },
     { id: 3, name: 'Vivian', city: 'Mumbai', subject: 'Math', gender: 'Male' },
   ];
   private _value: any;
@@ -60,7 +61,13 @@ export class StudentFormComponent implements OnInit {
   }
 
   onEdit(data: any){
-    console.log(data)
+    this.isEdit = true;
+    this.studentInfo = data;
+  }
+
+  updateStudent(data:any){
+    this.isEdit = !this.isEdit;
+    console.log(data);
   }
 
   task: Task = {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class StudentDataService {
   information: any = []; //Object
 
-  constructor() {}
+  constructor(private _http: HttpClient) {}
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
     name: new FormControl('', Validators.required),
@@ -21,7 +22,7 @@ export class StudentDataService {
       $key: null,
       name: '',
       city: 0,
-      gender: 'Male',
+      gender: '',
       isSelected: false,
     });
   }

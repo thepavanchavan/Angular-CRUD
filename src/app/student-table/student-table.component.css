@@ -18,7 +18,7 @@
 
 .form-control {
   display: block;
-    width: 100%;
+    width: 35%;
     height: 15px;
     padding: 6px 12px;
     font-size: 14px;
@@ -32,4 +32,8 @@
 }
 .form-control::placeholder  {
   font-family: FontAwesome;
+}
+.tableFooter{
+  margin-left: 30%;
+  padding: 5px;
 }
