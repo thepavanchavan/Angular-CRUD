@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentDataService } from '../appService/student-data.service';
-import { ThemePalette } from '@angular/material/core';
-
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-  subtasks?: Task[];
-}
-
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
@@ -16,41 +7,51 @@ export interface Task {
 })
 export class StudentFormComponent implements OnInit {
   isEdit = false;
-  studentInfo: any = [
-    { id: 1, name: 'John', city: 'Pune', subject: 'Math', gender: 'Male' },
-    { id: 2, name: 'Julie', city: 'Delhi', subject: 'Chemistry', gender: 'Female' },
-    { id: 3, name: 'Vivian', city: 'Mumbai', subject: 'Math', gender: 'Male' },
-  ];
-  private _value: any;
+  editId:any;
+  editName:any;
+  editCity:any;
+  editGender:any;
+  studentInfo: any;
 
   constructor(public service: StudentDataService) {}
 
   ngOnInit() {
-    //this.studentInfo = this.service.this.studentInfo;
+    this.studentInfo = this.service.information;
   }
   studentCity = [
     { id: 1, value: 'Pune' },
     { id: 2, value: 'Delhi' },
     { id: 3, value: 'Mumbai' },
     { id: 4, value: 'Hydrabad' },
-  ];
+  ]; 
 
   onClear() {
     this.service.form.reset();
     this.service.initializeFormGroup();
   }
 
-  onSubmit(data: {name: any; city: any; subject: any; gender: any }) {
+  onSubmit(data: {name: string; city: string; gender: string }) {
+    if(this.isEdit){
+     // console.log(this.editId);
+      var objIndex = this.studentInfo.findIndex(((obj: { id: any; }) => obj.id == this.editId));
+      //console.log(objIndex);
+      this.studentInfo[objIndex].name = this.editName;
+      this.studentInfo[objIndex].city = this.editCity;
+      this.studentInfo[objIndex].gender = this.editGender;
+      this.onClear();
+      this.isEdit = false;
+    }
+    else{
      var id2 = Math.round(Math.random()*100000);
     this.studentInfo.push({
       id:id2,
       name: data.name,
       city: data.city,
-      subject: data.subject,
       gender: data.gender,
     });
     console.log(this.studentInfo);
     this.service.form.reset();
+  }
   }
 
   onDelete(data: { id: any; }){
@@ -62,48 +63,18 @@ export class StudentFormComponent implements OnInit {
 
   onEdit(data: any){
     this.isEdit = true;
-    this.studentInfo = data;
+    this.editId = data.id;
+   console.log(data)
+   this.service.form.setValue({
+    $key: null,
+    name: data.name,
+    city: data.city,
+    gender: data.gender,
+   })
   }
-
-  updateStudent(data:any){
-    this.isEdit = !this.isEdit;
-    console.log(data);
-  }
-
-  task: Task = {
-    name: 'Select All',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      { name: 'Physics', completed: false, color: 'primary' },
-      { name: 'Chemistry', completed: false, color: 'accent' },
-      { name: 'Math', completed: false, color: 'warn' },
-    ],
-  };
-
-  allComplete: boolean = false;
-
-  updateAllComplete() {
-    this.allComplete =
-      this.task.subtasks != null &&
-      this.task.subtasks.every((t: { completed: any; }) => t.completed);
-  }
-
-  someComplete(): boolean {
-    if (this.task.subtasks == null) {
-      return false;
-    }
-    return (
-      this.task.subtasks.filter((t: { completed: any; }) => t.completed).length > 0 &&
-      !this.allComplete
-    );
-  }
-
-  setAll(completed: boolean) {
-    this.allComplete = completed;
-    if (this.task.subtasks == null) {
-      return;
-    }
-    this.task.subtasks.forEach((t: { completed: any; }) => (t.completed = completed));
+  update(updatedValue: any){
+    this.editName = updatedValue.name;
+    this.editCity = updatedValue.city;
+    this.editGender = updatedValue.gender;
   }
 }

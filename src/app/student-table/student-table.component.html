@@ -5,21 +5,21 @@
   <div fxFlex = "10">Actions</div>
 </div>
 
-<div class="row" fxLayout="row" fxLayoutAlign="start center" *ngFor="let data of info | filter:searchText1">
+<div class="row" fxLayout="row" fxLayoutAlign="start center" *ngFor="let data of info | filter: searchText1">
   <div fxFlex="25">{{ data.name | titlecase}}</div>
-  <div fxFlex="25">{{ data.city | filter:searchText2}}</div>
-  <div fxFlex="25">{{ data.gender | filter:searchText3}}</div>
+  <div fxFlex="25">{{ data.city}}</div>
+  <div fxFlex="25">{{ data.gender}}</div>
   <div fxFlex="25"><button mat-button color="primary" id="{{ data.id }}" (click) = "editRow(data)" >Edit</button></div>
   <div fxFlex="25"><button mat-button color="warn" id="{{ data.id }}" (click) = "deleteRow(data)">Delete</button></div>
 </div>
-<!-- <div fxLayout="row" fxLayoutAlign="start center" class="tableFooter">
+<div fxLayout="row" fxLayoutAlign="start center" class="tableFooter">
   <div fxFlex="20"><div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText1" autocomplete="off" placeholder="Name">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText1" placeholder="Name">
   </div></div>
   <div fxFlex="19"><div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText2" autocomplete="off" placeholder="City">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText2" placeholder="City">
   </div></div>
   <div fxFlex="25"><div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText3" autocomplete="off" placeholder="Gender">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText3" placeholder="Gender">
   </div></div>
-</div> -->
+</div>

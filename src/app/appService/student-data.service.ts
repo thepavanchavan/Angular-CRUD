@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentDataService {
-  information: any = []; //Object
+  information: any = [
+    { id: 1, name: 'John', city: 'Pune', gender: 'Male' },
+    { id: 2, name: 'Julie', city: 'Delhi',  gender: 'Female' },
+    { id: 3, name: 'Vivian', city: 'Mumbai', gender: 'Male' },
+  ]; //Object
 
-  constructor(private _http: HttpClient) {}
+  constructor() {}
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
     name: new FormControl('', Validators.required),
     city: new FormControl(0),
     gender: new FormControl('Male'),
-    isSelected: new FormControl(false),
   });
 
   initializeFormGroup() {
@@ -23,7 +25,6 @@ export class StudentDataService {
       name: '',
       city: 0,
       gender: '',
-      isSelected: false,
     });
   }
 }

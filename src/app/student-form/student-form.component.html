@@ -13,29 +13,6 @@
 </ng-container>
 </mat-select>
 </mat-form-field>
-<mat-label>Choose Subject</mat-label>
-<section class="example-section">
-<span class="example-list-section">
-<mat-checkbox formControlName="isSelected" class="example-margin"
-              [checked]="allComplete"
-              [color]="task.color"
-              [indeterminate]="someComplete()"
-              (change)="setAll($event.checked)">
-  {{task.name}}
-</mat-checkbox>
-</span>
-<span class="example-list-section">
-<ul>
-  <li *ngFor="let subtask of task.subtasks">
-    <mat-checkbox formControlName="isSelected" [(ngModel)]="subtask.completed"
-                  [color]="subtask.color"
-                  (ngModelChange)="updateAllComplete()" name = "subject" value = "{{subtask.name}}">
-      {{subtask.name}}
-    </mat-checkbox>
-  </li>
-</ul>
-</span>
-</section>
 <br>
 <mat-label>Gender</mat-label>
 <mat-radio-group formControlName="gender" aria-label="Select an option" name="gender" [(ngModel)]="studentInfo.gender">
@@ -45,7 +22,7 @@
 <br>
 <div class="example-button-row">
 <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" *ngIf="!isEdit">Save</button>
-<button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid" *ngIf="isEdit" (click) = "updateStudent(studentData.value)">Update</button>
+<button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid" *ngIf="isEdit" (click)="update(studentData.value)">Update</button>
 </div>
 </form>
 <div>
