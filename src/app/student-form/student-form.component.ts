@@ -11,7 +11,7 @@ export class StudentFormComponent implements OnInit {
   editName:any;
   editCity:any;
   editGender:any;
-  studentInfo: any;
+  studentInfo: any; 
 
   constructor(public service: StudentDataService) {}
 
@@ -59,6 +59,7 @@ export class StudentFormComponent implements OnInit {
     return element.id != data.id;
     });
     this.studentInfo = updated_array;
+    this.isEdit=false;
   }
 
   onEdit(data: any){
