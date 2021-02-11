@@ -11,6 +11,12 @@ export class StudentDataService {
     { id: 3, name: 'Vivian', city: 'Mumbai', gender: 'Male' },
   ]; //Object
 
+  teacher: any = [
+    { id: 1, name: 'Prof. Sharma', city: 'Mumbai', gender: 'Male' },
+    { id: 2, name: 'Prof. Jadhav', city: 'Delhi', gender: 'Male' },
+    { id: 3, name: 'Prof. Varma', city: 'Pune', gender: 'Male' },
+  ]
+
   constructor() {}
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
