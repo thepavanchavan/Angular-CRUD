@@ -7,6 +7,7 @@ import { StudentDataService } from '../appService/student-data.service';
 })
 export class StudentFormComponent implements OnInit {
   isEdit = false;
+  isSave = false;
   editId:any;
   editName:any;
   editCity:any;
