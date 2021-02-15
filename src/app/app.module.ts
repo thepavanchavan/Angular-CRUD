@@ -19,12 +19,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes } from '@angular/router'
+import { AssignmentOneComponent } from './assignment-one/assignment-one.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentFormComponent,
     StudentTableComponent,
+    HomeComponent,
+    AssignmentOneComponent,
   ],
   imports: [
     BrowserModule,

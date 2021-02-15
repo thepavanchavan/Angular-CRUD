@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ApiIntergrationComponent } from './api-intergration/api-intergration.component';
+import { AssignmentOneComponent } from './assignment-one/assignment-one.component';
+import { ParamRoutingComponent } from './param-routing/param-routing.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'Assignment-1', component:AssignmentOneComponent},
+  {path:'Assignment-2', component:ApiIntergrationComponent},
+  {path:'Assignment-3/:id', component:ParamRoutingComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

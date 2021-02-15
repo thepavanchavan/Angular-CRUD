@@ -12,6 +12,7 @@ export class StudentTableComponent implements OnInit {
   searchText1!: string;
   searchText2!: string;
   searchText3!: string;
+  way:any = 'searchText1'
   @Input() info: any;
   @Output() deleteInfo = new EventEmitter<any>();
   @Output() editInfo = new EventEmitter<any>();
@@ -21,5 +22,9 @@ export class StudentTableComponent implements OnInit {
  }
  editRow(data: any){
    this.editInfo.emit(data);
+ }
+ onKey(value: any){
+   console.log(value);
+   this.info = this.info.filter(value == this.info.name)[0];
  }
 }
