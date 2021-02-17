@@ -6,9 +6,15 @@ import { HomeComponent } from './home/home.component';
 import { ParamRoutingComponent } from './param-routing/param-routing.component';
 
 const routes: Routes = [
-  {path:'Assignment-1', component:AssignmentOneComponent},
-  {path:'Assignment-2', component:ApiIntergrationComponent},
-  {path:'Assignment-3/:id/:name', component:ParamRoutingComponent},
+  {path:'Home', children:[
+    {path:'', component: HomeComponent},
+    {path:'Assignment-1', component:AssignmentOneComponent},
+    {path:'Assignment-2', component:ApiIntergrationComponent},
+    {path:'Assignment-3/:id/:name', component:ParamRoutingComponent},
+  ]},
+  // {path:'Assignment-1', component:AssignmentOneComponent},
+  // {path:'Assignment-2', component:ApiIntergrationComponent},
+  // {path:'Assignment-3/:id/:name', component:ParamRoutingComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

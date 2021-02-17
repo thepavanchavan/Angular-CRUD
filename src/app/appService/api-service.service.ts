@@ -9,7 +9,11 @@ export class ApiServiceService {
 
   constructor(private httpclient:HttpClient) { }
 
-   getData(){
-     return this.httpclient.get("https://jsonplaceholder.typicode.com/posts");
+   getTodos(): Observable<any>{
+     return this.httpclient.get<any>("https://jsonplaceholder.typicode.com/todos");
    }
+
+  //  getComments(): Observable<any>{
+  //   return this.httpclient.get<any>("https://jsonplaceholder.typicode.com/comments");
+  // }
  }

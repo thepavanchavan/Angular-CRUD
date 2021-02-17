@@ -23,6 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router'
 import { AssignmentOneComponent } from './assignment-one/assignment-one.component';
 import { ApiIntergrationComponent } from './api-intergration/api-intergration.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 // import { Observable } from 'rxjs';
 
 
@@ -33,7 +35,8 @@ import { ApiIntergrationComponent } from './api-intergration/api-intergration.co
     StudentTableComponent,
     HomeComponent,
     AssignmentOneComponent,
-    ApiIntergrationComponent
+    ApiIntergrationComponent,
+    DynamicTableComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { ApiIntergrationComponent } from './api-intergration/api-intergration.co
     MatTabsModule,
     Ng2SearchPipeModule,
     HttpClientModule,
+    MatPaginatorModule,
   ],
   providers: [StudentDataService],
   bootstrap: [AppComponent]

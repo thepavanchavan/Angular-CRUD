@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiServiceService} from 'src/app/appService/api-service.service'
-
 @Component({
   selector: 'app-api-intergration',
   templateUrl: './api-intergration.component.html',
@@ -10,14 +9,16 @@ export class ApiIntergrationComponent implements OnInit {
 
   constructor(private apiService : ApiServiceService) { }
 
-  post:any;
-  userHead:any=["userId", "id", "Title", "body"]
+  public post:any;
+  public comments:any;
+
+  postHead:any=["id", "Completed", "Title"]
+  commentHead:any=["id", "name", "email","body" ];
 
   ngOnInit() {
-     this.apiService.getData().subscribe(data=>{
-       console.log(data);
-       this.post = data;
-     })
+     this.apiService.getTodos().subscribe(data=> this.post = data)
+
+    //  this,this.apiService.getComments().subscribe(data=>this.comments=data);
   }
 
 }

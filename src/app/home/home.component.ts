@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
-   onType(id: string, name:string) {
-  this.router.navigate(['/Assignment-3', id, name]);
-  }
   ngOnInit(){
   }
 }

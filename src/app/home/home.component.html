@@ -1,10 +1,6 @@
 <div class="home">
-    <button class="button"  routerLinkActive="router-link-active" routerLink = "/Assignment-1">Assignment 1</button>
-    <button class="button" routerLinkActive="router-link-active" routerLink = "/Assignment-2">Assignment 2</button>
-    <button class="button"  routerLinkActive="router-link-active" (click)="onType(id.value,name.value)" >Assignment 3</button>
-    <input type="text" #id placeholder="ID">
-    <input type="text" #name placeholder="NAME">
+    <button class="button"  routerLinkActive="router-link-active" routerLink = "Home/Assignment-1">Assignment 1</button>
+    <button class="button" routerLinkActive="router-link-active" routerLink = "Home/Assignment-2">Assignment 2</button>
+    <button class="button"  routerLinkActive="router-link-active" [routerLink] = "['Home/Assignment-3','1','Pavan']"  >Assignment 3</button>
 </div>
 <router-outlet></router-outlet>
-
-<!-- [routerLink] = "['/Assignment-3',id.value,name.value]" -->

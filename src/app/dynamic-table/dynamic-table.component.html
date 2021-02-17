@@ -1,0 +1,15 @@
+<!-- <mat-table>
+    <ng-container *ngFor = "let column of columns" [matColumnDef]="column">
+        <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+        <mat-cell *matCellDef = "let object">{{object[column]}}</mat-cell>
+    </ng-container>
+</mat-table> -->
+<div fxLayout="row" fxLayoutAlign="start center" class="tableHead">
+    <div fxFlex="20" *ngFor = 'let col of userHead'>{{col}} </div>
+  </div>
+  
+  <div class="row" fxLayout="row" fxLayoutAlign="start center" *ngFor="let data of info" >
+    <div fxFlex="20">{{ data.id}}</div>
+    <div fxFlex="20">{{ data.completed}}</div>
+    <div fxFlex="20">{{ data.title}}</div>
+  </div>
