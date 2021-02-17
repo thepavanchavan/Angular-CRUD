@@ -11,11 +11,13 @@ export class ApiIntergrationComponent implements OnInit {
   constructor(private apiService : ApiServiceService) { }
 
   post:any;
+  userHead:any=["userId", "id", "Title", "body"]
 
   ngOnInit() {
-  //   this.apiService.getComments().subscribe(data=>{
-  //     this.post = data;
-  //   })
+     this.apiService.getData().subscribe(data=>{
+       console.log(data);
+       this.post = data;
+     })
   }
 
 }

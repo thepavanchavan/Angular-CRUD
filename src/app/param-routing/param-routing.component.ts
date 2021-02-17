@@ -6,12 +6,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./param-routing.component.css']
 })
 export class ParamRoutingComponent implements OnInit {
-  id!:string
+  id: any;
+  name:any;
   constructor(private route: ActivatedRoute) { }
   ngOnInit() {
-    this.route.url.subscribe(url =>{
+     this.route.url.subscribe(url =>{
       this.id = this.route.snapshot.params.id;
-     console.log(this.id)
+      this.name = this.route.snapshot.params.name;
+     console.log(this.id);
+     console.log(this.name);
   });
   }
 

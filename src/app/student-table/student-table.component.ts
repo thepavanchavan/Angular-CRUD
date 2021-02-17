@@ -12,6 +12,8 @@ export class StudentTableComponent implements OnInit {
   searchText1!: string;
   searchText2!: string;
   searchText3!: string;
+
+  @Input() tableHead:any[]=['Name','City','Gender'];
   way:any = 'searchText1'
   @Input() info: any;
   @Output() deleteInfo = new EventEmitter<any>();

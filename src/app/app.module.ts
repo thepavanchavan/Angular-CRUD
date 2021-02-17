@@ -22,6 +22,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router'
 import { AssignmentOneComponent } from './assignment-one/assignment-one.component';
+import { ApiIntergrationComponent } from './api-intergration/api-intergration.component';
+// import { Observable } from 'rxjs';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { AssignmentOneComponent } from './assignment-one/assignment-one.componen
     StudentTableComponent,
     HomeComponent,
     AssignmentOneComponent,
+    ApiIntergrationComponent
   ],
   imports: [
     BrowserModule,

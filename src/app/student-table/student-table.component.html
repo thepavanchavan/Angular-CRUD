@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="start center" class="tableHead">
-  <div fxFlex="20">Name <input class="form-control" type="text" #box (keyup)="onKey(box.value)" name="search" [(ngModel)]="searchText1" placeholder="Name"></div>
-  <div fxFlex="19">City <input class="form-control" type="text" name="search" [(ngModel)]="searchText2" placeholder="City"></div>
-  <div fxFlex="31">Gender <input class="form-control" type="text" name="search" [(ngModel)]="searchText3" placeholder="Gender"></div>
+  <div fxFlex="20" *ngFor = 'let col of tableHead'>{{col}} <input class="form-control" type="text" #box (keyup)="onKey(box.value)" name="search" [(ngModel)]="searchText1" placeholder="Search"></div>
+  <!-- <div fxFlex="19">City <input class="form-control" type="text" name="search" [(ngModel)]="searchText2" placeholder="City"></div>
+  <div fxFlex="31">Gender <input class="form-control" type="text" name="search" [(ngModel)]="searchText3" placeholder="Gender"></div> -->
   <div fxFlex = "10">Actions</div>
 </div>
 
