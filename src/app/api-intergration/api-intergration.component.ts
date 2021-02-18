@@ -6,19 +6,44 @@ import { ApiServiceService} from 'src/app/appService/api-service.service'
   styleUrls: ['./api-intergration.component.css']
 })
 export class ApiIntergrationComponent implements OnInit {
+  
 
   constructor(private apiService : ApiServiceService) { }
 
-  public post:any;
-  public comments:any;
+   post:any;
+   comments:any;
+   finalPost:any;
+   finalComment: any;
 
-  postHead:any=["id", "Completed", "Title"]
-  commentHead:any=["id", "name", "email","body" ];
+  postHead:any=["id","Completed", "Title"]
+  commentHead:any=["Name", "Body","Email" ];
 
   ngOnInit() {
-     this.apiService.getTodos().subscribe(data=> this.post = data)
-
-    //  this,this.apiService.getComments().subscribe(data=>this.comments=data);
+     this.apiService.getTodos().subscribe(data=> {
+       this.post = data
+       console.log(this.post);
+       const newArrayTodo = this.post.map((item: any)=>{
+         return{
+           id:item.id,
+           city:item.completed,
+           gender:item.title
+         }
+       });
+       this.finalPost = newArrayTodo;
+       console.log(newArrayTodo)
+      });
+     this,this.apiService.getComments().subscribe(data=>{
+       this.comments=data;
+       const newArrayComment = this.comments.map((item:any)=>{
+         return{
+           name:item.name,
+           city:item.body,
+           gender:item.email
+         }
+       });
+       this.finalComment = newArrayComment;
+       console.log(newArrayComment)
+      });
   }
 
 }

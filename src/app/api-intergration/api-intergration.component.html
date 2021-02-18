@@ -1,13 +1,9 @@
- <!-- <app-student-table [tableHead]="postHead" [info]="post"></app-student-table> -->
-<div class="table">
- <div fxLayout="row" fxLayoutAlign="start center" class="tableHead">
-  <div fxFlex="20" *ngFor = 'let col of postHead'>{{col}} </div>
+<div class="table" fxFlex='100'>
+  <div class="tableone" fxFlex='45'>
+    <app-student-table [tableHead]="postHead" [info]="finalPost"></app-student-table>
+  </div>
+  <div class="tabletwo" fxFlex = "78">
+ 
+    <app-student-table [tableHead]="commentHead" [info]="finalComment"></app-student-table>
+  </div>
 </div>
-
-<div class="row" fxLayout="row" fxLayoutAlign="start center" *ngFor="let data of post" >
-  <div fxFlex="20">{{ data.id}}</div>
-  <div fxFlex="20">{{ data.completed}}</div>
-  <div fxFlex="20">{{ data.title}}</div>
-</div>
-</div>
-<!-- <app-dynamic-table [userHead]="userHead", [info] = "post"></app-dynamic-table> -->

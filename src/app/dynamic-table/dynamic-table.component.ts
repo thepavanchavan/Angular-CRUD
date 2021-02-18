@@ -8,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DynamicTableComponent implements OnInit {
 
   constructor() { }
-@Input() userHead:any;
-@Input() info:any;
+@Input() userHead:any=["id", "name", "city","gender"]
+@Input() info:any=[{id:1,name:"john",city:"Pune",gender:"Male"}]
   ngOnInit() {}
 
 }

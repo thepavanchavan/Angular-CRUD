@@ -13,7 +13,7 @@ export class ApiServiceService {
      return this.httpclient.get<any>("https://jsonplaceholder.typicode.com/todos");
    }
 
-  //  getComments(): Observable<any>{
-  //   return this.httpclient.get<any>("https://jsonplaceholder.typicode.com/comments");
-  // }
+   getComments(): Observable<any>{
+    return this.httpclient.get<any>("https://jsonplaceholder.typicode.com/comments");
+   }
  }

@@ -1,13 +1,10 @@
-.tableHead{
-    background-color: #ffd74057;
-    margin-left: 14%;
-    padding: 5px;
-    border: solid 1px teal;
-    font-family: cursive;
+.table{
+    display: flex;
+    align-content: flex-start;
   }
-  .row{
-    margin-left: 14%;
-    padding: 2px;
-    border: solid 1px teal;
+  .tableone{
+    margin-left: -136px;
   }
-  
+  .tabletwo{
+    margin-left: -257px;
+  }
