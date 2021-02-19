@@ -14,9 +14,10 @@ export class ApiIntergrationComponent implements OnInit {
    comments:any;
    finalPost:any;
    finalComment: any;
+   flag2:boolean=false;
 
-  postHead:any=["id","Completed", "Title"]
-  commentHead:any=["Name", "Body","Email" ];
+  postHead:any=["Completed", "Title"]
+  commentHead:any=["Name", "Email","Body" ];
 
   ngOnInit() {
      this.apiService.getTodos().subscribe(data=> {
@@ -24,7 +25,7 @@ export class ApiIntergrationComponent implements OnInit {
        console.log(this.post);
        const newArrayTodo = this.post.map((item: any)=>{
          return{
-           id:item.id,
+          //  id:item.id,
            city:item.completed,
            gender:item.title
          }
@@ -37,8 +38,8 @@ export class ApiIntergrationComponent implements OnInit {
        const newArrayComment = this.comments.map((item:any)=>{
          return{
            name:item.name,
-           city:item.body,
-           gender:item.email
+           city:item.email,
+           gender:item.body
          }
        });
        this.finalComment = newArrayComment;

@@ -1,9 +1,30 @@
-<div class="table" fxFlex='100'>
-  <div class="tableone" fxFlex='45'>
-    <app-student-table [tableHead]="postHead" [info]="finalPost"></app-student-table>
+<div class="table" fxFlex="100">
+  <div class="tableone" fxFlex="45">
+    <app-student-table
+      [colLength]="50"
+      [actionLength]="0"
+      [nameLength]="5"
+      [cityLength]="45"
+      [genderLength]="50"
+      [editLength]="0"
+      [deleteLength]="0"
+      [flag]="flag2"
+      [tableHead]="postHead"
+      [info]="finalPost"
+    ></app-student-table>
   </div>
-  <div class="tabletwo" fxFlex = "78">
- 
-    <app-student-table [tableHead]="commentHead" [info]="finalComment"></app-student-table>
+  <div class="tabletwo" fxFlex="78">
+    <app-student-table
+    [colLength]="30"
+    [actionLength]="0"
+    [nameLength]="30"
+    [cityLength]="30"
+    [genderLength]="30"
+    [editLength]="0"
+    [deleteLength]="0"  
+    [flag]="flag2"
+      [tableHead]="commentHead"
+      [info]="finalComment"
+    ></app-student-table>
   </div>
 </div>

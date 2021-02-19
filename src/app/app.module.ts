@@ -24,7 +24,6 @@ import { RouterModule, Routes } from '@angular/router'
 import { AssignmentOneComponent } from './assignment-one/assignment-one.component';
 import { ApiIntergrationComponent } from './api-intergration/api-intergration.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 // import { Observable } from 'rxjs';
 
 
@@ -36,7 +35,6 @@ import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
     HomeComponent,
     AssignmentOneComponent,
     ApiIntergrationComponent,
-    DynamicTableComponent
   ],
   imports: [
     BrowserModule,

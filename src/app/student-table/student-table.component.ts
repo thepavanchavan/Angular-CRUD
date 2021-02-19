@@ -12,7 +12,14 @@ export class StudentTableComponent implements OnInit {
   searchText1!: string;
   searchText2!: string;
   searchText3!: string;
-
+  @Input() colLength:Number=20;
+  @Input() actionLength:Number=10;
+  @Input() nameLength:Number=25;
+  @Input() cityLength:Number=25;
+  @Input() genderLength:Number=25;
+  @Input() editLength:Number=25;
+  @Input() deleteLength:Number=25;
+  @Input() flag:boolean=true;
   @Input() tableHead:any[]=['Name','City','Gender'];
   way:any = 'searchText1'
   @Input() info: any;
