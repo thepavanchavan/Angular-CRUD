@@ -24,6 +24,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { AssignmentOneComponent } from './assignment-one/assignment-one.component';
 import { ApiIntergrationComponent } from './api-intergration/api-intergration.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { LibraryModule } from './library/library.module';
 // import { Observable } from 'rxjs';
 
 
@@ -54,6 +55,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     Ng2SearchPipeModule,
     HttpClientModule,
     MatPaginatorModule,
+    LibraryModule,
   ],
   providers: [StudentDataService],
   bootstrap: [AppComponent]

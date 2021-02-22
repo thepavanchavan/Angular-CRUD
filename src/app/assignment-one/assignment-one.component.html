@@ -1,4 +1,15 @@
 <mat-tab-group>
     <mat-tab label="Content"><div class="tabContent"><app-student-form></app-student-form></div></mat-tab>
     <mat-tab label="Teacher"> <div class="tabTeacher"><app-student-table [info]="teacher"></app-student-table></div> </mat-tab>
+    <mat-tab label = "Select Box">
+      <h3>Subjects</h3>
+      <app-selector [selected]="defaultSubject" [options]="subjects"></app-selector>
+      <br>
+      <h3>Student Name</h3>
+      <app-selector [selected]="defaultName" [options]="names"></app-selector>
+      <br>
+      <h3>City</h3> 
+      <app-selector [selected]="defaultCity" [options]="cities"></app-selector>
+    </mat-tab>
   </mat-tab-group> 
+  
