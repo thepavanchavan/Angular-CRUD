@@ -9,9 +9,9 @@ import {StudentDataService} from "src/app/appService/student-data.service"
 })
 export class AssignmentOneComponent implements OnInit {
   teacher:any
-  subjects:any=["IT","CSE","Civil","Mechanical","Electrical"];
-  names:any=["Pavan","John","Viavian","Jagjeet","Rakesh"];
-  cities:any=["Pune","Mumbai","Nashik","Delhi","Solapur"];
+  subjects:any=[{value:"IT"},{value:"CSE"},{value:"Civil"},{value:"Mechanical"},{value:"Electrical"}];
+  names:any=[{value:"Pavan"},{value:"Ram"},{value:"John"},{value:"Jeetu"},{value:"Naveed"}];
+  cities:any=[{value:"Pune"},{value:"Mumbai"},{value:"Delhi"},{value:"Hydrabad"},{value:"Benguluru"}];
   defaultSubject:any = "IT";
   defaultName:any = "Pavan";
   defaultCity:any = "Pune";

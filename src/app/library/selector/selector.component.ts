@@ -8,9 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SelectorComponent implements OnInit {
 
   constructor() { }
-  @Input() options: any = [];
-  @Input() formName:any="None";
-  @Input() selected = "Domain"
+  @Input() options: any = [{value:"A"}];
+  @Input() selected = this.options.value;
   ngOnInit(): void {
   }
 
