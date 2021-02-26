@@ -11,6 +11,8 @@
   }
   .home{
     padding-top: 5px;
+    display: grid;
+    position: fixed;
   }
   .router-link-active {
     background-color: #770063;
@@ -29,4 +31,16 @@
   .display{
     width: -webkit-fill-available;
     height: 100%;
+    margin-left: 210px;
+  }
+  .logoutButton{
+    background-color: #001679;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
   }

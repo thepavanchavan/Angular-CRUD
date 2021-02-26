@@ -10,7 +10,7 @@ import { Button } from 'protractor';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
-  class1:any="button";
+  class1:any="router-link-active";
   class2:any="button";
   class3:any="button";
   goAssignOne() {
@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
     this.class3 = "router-link-active"
     this.class1 = "button"
     this.class2 = "button"
+  }
+  logout(){
+    this.router.navigate(['/login']);
   }
   ngOnInit(){
   }

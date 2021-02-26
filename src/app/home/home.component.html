@@ -1,9 +1,9 @@
 <div class="main">
 <div class="home">
     <button class="{{class1}}" (click)=goAssignOne()>Assignment 1</button>
-    <br>
     <button class="{{class2}}" (click)=goAssignTwo()>Assignment 2</button>
     <button class="{{class3}}" (click)="goAssignThree(1,'Pavan')" >Assignment 3</button>
+    <button class="logoutButton" (click)="logout()" >LOG-OUT</button>
 </div>
 <div class="display">
     <router-outlet></router-outlet>

@@ -25,6 +25,9 @@ import { AssignmentOneComponent } from './assignment-one/assignment-one.componen
 import { ApiIntergrationComponent } from './api-intergration/api-intergration.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LibraryModule } from './library/library.module';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 // import { Observable } from 'rxjs';
 
 
@@ -36,6 +39,9 @@ import { LibraryModule } from './library/library.module';
     HomeComponent,
     AssignmentOneComponent,
     ApiIntergrationComponent,
+    LoginComponent,
+    SignupComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
