@@ -28,6 +28,7 @@ import { LibraryModule } from './library/library.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AuthGuard } from './auth.guard';
 // import { Observable } from 'rxjs';
 
 
@@ -63,7 +64,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MatPaginatorModule,
     LibraryModule,
   ],
-  providers: [StudentDataService],
+  providers: [StudentDataService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

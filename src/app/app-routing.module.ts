@@ -8,16 +8,17 @@ import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ParamRoutingComponent } from './param-routing/param-routing.component';
 import { SignupComponent } from './signup/signup.component';
+import {AuthGuard} from './auth.guard'
 
 const routes: Routes = [
   {path:'', redirectTo:'login',pathMatch:"full"},
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
-  {path:'Home', component: HomeComponent ,children:[
+  {path:'Home', component: HomeComponent, canActivate:[AuthGuard] ,children:[
     {path:'', component:AssignmentOneComponent},
-    {path:'Assignment-1', component:AssignmentOneComponent},
-    {path:'Assignment-2', component:ApiIntergrationComponent},
-    {path:'Assignment-3/:id/:name', component:ParamRoutingComponent},
+    {path:'Assignment-1', canActivate:[AuthGuard], component:AssignmentOneComponent},
+    {path:'Assignment-2', canActivate:[AuthGuard], component:ApiIntergrationComponent},
+    {path:'Assignment-3/:id/:name', canActivate:[AuthGuard], component:ParamRoutingComponent},
   ]},
   { path: '404', component:PagenotfoundComponent },
   { path: '**', redirectTo: '404' }
@@ -25,6 +26,7 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard]
 })
 export class AppRoutingModule { }
